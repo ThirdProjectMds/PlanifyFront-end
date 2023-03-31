@@ -1,1 +1,11 @@
+:root {
+  --dark-blue: #2d3142;
+  --orange: #f18016;
+  --gray: #4f5d75;
+  --turquesa: #4cb5ae;
+}
 
+body {
+  color: var(--dark-blue);
+font-style: italic;
+}
