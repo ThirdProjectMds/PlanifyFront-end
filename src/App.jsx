@@ -7,6 +7,7 @@ import AuthContext from './contexts/AuthContext'
 import {Profile} from "./views/Profile"
 import { Login } from './views/Login'
 import { Home } from './views/Home'
+import { PostDetail } from './views/Post/PostDetail'
 
 function App() {
  
@@ -19,6 +20,8 @@ function App() {
        <Routes>
         <Route path="/" element={<Home/>}/>
          <Route path="login" element={<Login/>} />
+
+         <Route path="posts/:id" element={<PostDetail/>}/>
          <Route path="profile" element={
            <ProtectedRoute>
              <Profile />

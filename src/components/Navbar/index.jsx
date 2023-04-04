@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
-// import { logout } from '../../services/AuthService';
+import { logout } from "../../stores/AccssTokenStore";
+
 import "./index.css";
-const Navbar = ({onLogout }) => {
-  const { currentUser, isAuthLoaded } = useContext(AuthContext)
+const Navbar = () => {
+  const { currentUser, isAuthLoaded } = useContext(AuthContext);
   return (
     <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
       <div className="container-fluid ">
         <Link className="navbar-brand nav-color" to="/">
-        𝙋𝙡𝙖𝙣𝙞𝙛𝙮
+          𝙋𝙡𝙖𝙣𝙞𝙛𝙮
         </Link>
         <button
           className="navbar-toggler"
@@ -30,8 +31,14 @@ const Navbar = ({onLogout }) => {
                   `nav-link ${isActive ? "active" : ""}  `
                 }
                 to="/login"
-            
-              >
+                onClick={() => {
+                  if (currentUser) {
+                    logout(); 
+                  }
+                }}
+                
+                >
+                
                 {currentUser ? "Logout" : "Login"}
               </NavLink>
             </li>

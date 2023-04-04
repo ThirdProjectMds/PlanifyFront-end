@@ -1,24 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Post } from "../../components/Post";
-import { getPosts } from "../../services/PostService";
-import "./index.css"
+import React from 'react'
+import { PostList } from '../Post/PostList'
 
-export const Home = ({}) => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    getPosts()
-      .then((posts) => {
-        setPosts(posts);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+export const Home = () => {
   return (
-    <div className="Home">
-    {posts.map((post)=>{
-      return <Post data={post} key={post.id}/>
-    })}
-  
-  </div>
+    <div className='Home'>
+      
+    <PostList/>
+    </div>
   )
-};
+}

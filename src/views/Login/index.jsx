@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import {FormControl} from '../../components/FormControl';
 import {Input} from '../../components/Input';
 import AuthContext from '../../contexts/AuthContext';
@@ -12,7 +13,11 @@ const initialValues = {
   password: ''
 }
 export const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Navigate to="/profile" />;
+  }
 
   const {
     values, errors, touched, handleChange, handleBlur,
