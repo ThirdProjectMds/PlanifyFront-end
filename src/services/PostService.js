@@ -7,5 +7,7 @@ export const getPosts = () => {
   return unauthenticatedHttp.get("/planify/v1/posts");
 };
 
+export const postDetail = (id) =>
+  unauthenticatedHttp.get(`/planify/v1/posts/${id}`);
 
-export const postDetail = (id) => unauthenticatedHttp.get(`/planify/v1/posts/${id}`)
+export const createPost = (post) => authenticatedHttp.post("/planify/v1/posts", post);

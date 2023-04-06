@@ -6,7 +6,7 @@ import {Input} from '../../components/Input';
 import AuthContext from '../../contexts/AuthContext';
 import { login as loginService } from '../../services/AuthService';
 import { setAccessToken } from '../../stores/AccssTokenStore';
-import { loginSchema } from './schemas/login.schema';
+import { loginSchema } from '../../utils/schemas/login.schema';
 
 const initialValues = {
   email: '',
