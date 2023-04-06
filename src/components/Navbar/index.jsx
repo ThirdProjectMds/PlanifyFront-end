@@ -25,7 +25,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item li">
+            <li className="nav-item ">
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}  `
@@ -33,16 +33,14 @@ const Navbar = () => {
                 to="/login"
                 onClick={() => {
                   if (currentUser) {
-                    logout(); 
+                    logout();
                   }
                 }}
-                
-                >
-                
+              >
                 {currentUser ? "Logout" : "Login"}
               </NavLink>
             </li>
-            <li className="nav-item li">
+            <li className="nav-item ">
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}  `
@@ -50,6 +48,17 @@ const Navbar = () => {
                 to="/profile"
               >
                 Profile
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}  `
+                }
+                to="/create-post"
+              >
+                Post
               </NavLink>
             </li>
           </ul>

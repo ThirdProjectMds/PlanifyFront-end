@@ -27,7 +27,7 @@
 }
 
 .image-place img{
- width: 355px;
+ width: 400px;
 }
 
 .description{
@@ -51,7 +51,7 @@
     gap: 1rem;
   }
   .image-place img{
-    width: 400px;
+    width: 350px;
    }
   
 }

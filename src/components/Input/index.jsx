@@ -23,6 +23,9 @@ export const Input = ({
     onBlur,
     className: `form-control ${error ? "is-invalid" : ""}`,
   };
+  if (type === "textarea") {
+    return <textarea rows={rows} disabled={disabled} {...commonProps} />;
+  }
   return (
     <input
       type={type}
@@ -31,5 +34,5 @@ export const Input = ({
       disabled={disabled}
       {...commonProps}
     />
-  )
+  );
 };
