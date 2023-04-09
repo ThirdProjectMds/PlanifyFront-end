@@ -16,6 +16,14 @@
   color: var(--turquesa)
 
 }
+.card-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.text-card {
+  flex: 1;
+}
 
 .Card{
   border: 1px solid var(--gray);

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { CardPost } from "../../../components/CardPost";
-import { getPosts } from "../../../services/PostService";
+import { getPosts} from "../../../services/PostService";
 import "./index.css"
 
 export const PostList = ({}) => {
   const [posts, setPosts] = useState([]);
+  
   useEffect(() => {
     getPosts()
       .then((posts) => {

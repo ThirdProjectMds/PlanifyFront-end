@@ -27,5 +27,5 @@ export const postSchema = Yup.object({
     .test("fileType", "Formato de imagen no válido", (value) => {
       return value && ["image/jpeg", "image/png"].includes(value.type);
     })
-    .required("required"),
+    // .required("required"),
 });
