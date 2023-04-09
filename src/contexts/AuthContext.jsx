@@ -8,8 +8,8 @@ export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
-
-  const [currentUser, setCurrentUser] = useState(null); 
+ 
+  const [currentUser, setCurrentUser] = useState(null);
   const [isAuthLoaded, setIsAuthLoaded] = useState(false); 
 
   const getCurrentUser = useCallback((callback) => {

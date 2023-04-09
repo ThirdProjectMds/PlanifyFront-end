@@ -5,7 +5,7 @@ import { logout } from "../../stores/AccssTokenStore";
 
 import "./index.css";
 const Navbar = () => {
-  const { currentUser, isAuthLoaded } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   return (
     <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
       <div className="container-fluid ">
@@ -41,26 +41,35 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item ">
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}  `
-                }
-                to="/profile"
-              >
-                Profile
-              </NavLink>
+              {!currentUser && (
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}  `
+                  }
+                  to="/signup"
+                >
+                  SignUp
+                </NavLink>
+              )}
             </li>
+            {currentUser &&
+            <><li className="nav-item ">
+                <NavLink
+                  className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
+                  to="/profile"
+                >
+                  Profile
+                </NavLink>
+              </li><li>
+                  <NavLink
+                    className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
+                    to="/create-post"
+                  >
+                    Post
+                  </NavLink>
 
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}  `
-                }
-                to="/create-post"
-              >
-                Post
-              </NavLink>
-            </li>
+                </li></>
+              }
           </ul>
         </div>
       </div>
