@@ -36,6 +36,7 @@
 
 .image-place img{
  width: 400px;
+ height: 250px;
 }
 
 .description{
@@ -60,6 +61,7 @@
   }
   .image-place img{
     width: 350px;
+    height: 220px;
    }
   
 }

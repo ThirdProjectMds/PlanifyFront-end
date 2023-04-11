@@ -60,16 +60,27 @@ const Navbar = () => {
                 >
                   Profile
                 </NavLink>
-              </li><li>
+              </li>
+              <li>
                   <NavLink
                     className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
                     to="/create-post"
                   >
-                    Post
+                    Create
                   </NavLink>
 
                 </li></>
               }
+
+              <li>
+              <NavLink
+                className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
+                to="/posts"
+              >
+                Posts
+              </NavLink>
+
+            </li>
           </ul>
         </div>
       </div>

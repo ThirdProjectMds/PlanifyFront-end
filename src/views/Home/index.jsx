@@ -1,11 +1,11 @@
 import React from 'react'
-import { PostList } from '../Post/PostList'
+import { PostCategories } from '../Post/PostCategories'
 
 export const Home = () => {
   return (
     <div className='Home'>
       
-    <PostList/>
+    <PostCategories/>
     </div>
   )
 }

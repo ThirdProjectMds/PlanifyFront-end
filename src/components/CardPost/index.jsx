@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import { deletePost } from "../../services/PostService";
+import { deletePost, like } from "../../services/PostService";
 import AuthContext from "../../contexts/AuthContext";
 
 export const CardPost = ({ data }) => {
   const { currentUser } = useContext(AuthContext);
+  const [liked, setLiked] = useState(data.likes.includes(currentUser?.id));
+  const [likesCount, setLikesCount] = useState(data.likes.length);
 
+  const handleLike = async () => {
+    await like(data?.id, currentUser?.id);
+    setLiked(!liked);
+    setLikesCount(liked ? likesCount - 1 : likesCount + 1);
+  };
   const isMyPost = (post) => {
     return currentUser?.id === post.author.id;
   };
@@ -21,27 +28,29 @@ export const CardPost = ({ data }) => {
           <a href="/profile">{data.author.firstName}</a>
         </div>
         <div className="text-card">
-        <h4>{data.title}</h4>
-        <p className="description">{data.description}</p>
-        <p>{data.direction}</p>
+          <h4>{data.title}</h4>
+          <p className="description">{data.description}</p>
+          <p>{data.direction}</p>
         </div>
-       <div className="btn-card">
-       <Link to={`/posts/${data.id}`} className="btn">
-          More Information
-     </Link>
-     {isMyPost(data) && (
-       <>
-         
-         <Link to={`/post/edit/${data.id}`} className="btn">
-           Edit
-         </Link>
-         <Link onClick={() => deletePost(data.id)} className="btn">
-           Delete
-         </Link>
-         
-       </>
-     )}
-       </div>
+        <div className="btn-card">
+          <Link to={`/posts/${data.id}`} className="btn">
+          ➕
+          </Link>
+
+          {isMyPost(data) && (
+            <>
+              <Link to={`/post/edit/${data.id}`} className="btn">
+                🖊️ 
+              </Link>
+              <Link onClick={() => deletePost(data.id)} className="btn">
+                🗑️ 
+              </Link>
+            </>
+          )}
+          <Link onClick={handleLike} className="btn">
+            {liked ? <span>🧡</span> : <span>🧡</span>} {likesCount}
+          </Link>
+        </div>
       </div>
     </div>
   );
