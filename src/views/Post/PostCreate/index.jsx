@@ -25,7 +25,6 @@ export const CreatePost = ({editValues}) => {
 
   const Navigate = useNavigate();
 
-console.log(editValues);
   const {
     values,
     errors,

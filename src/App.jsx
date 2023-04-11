@@ -11,6 +11,8 @@ import { PostDetail } from "./views/Post/PostDetail";
 import { CreatePost } from "./views/Post/PostCreate";
 import { EditPost } from "./views/Post/PostEdit";
 import { SignUp } from "./views/SignUp";
+import { PostCategories } from "./views/Post/PostCategories";
+import { PostList } from "./views/Post/PostList";
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp/>}/>
-
+          <Route path="signup" element={<SignUp />} />
           <Route path="posts/:id" element={<PostDetail />} />
+          <Route path="posts" element={<PostList />} />
+          <Route path="posts/category/:category" element={<PostList />} />
+
           <Route
             path="profile"
             element={
@@ -42,14 +46,14 @@ function App() {
             }
           ></Route>
           <Route
-          path="/post/edit/:id"
-          element={
-            <ProtectedRoute>
-              <EditPost />
-            </ProtectedRoute>
-          }
-        ></Route>
-        
+            path="/post/edit/:id"
+            element={
+              <ProtectedRoute>
+                <EditPost />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path="/post-categories" element={<PostCategories />} />
         </Routes>
       </div>
     </div>
