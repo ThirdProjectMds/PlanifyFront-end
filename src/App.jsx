@@ -13,6 +13,7 @@ import { EditPost } from "./views/Post/PostEdit";
 import { SignUp } from "./views/SignUp";
 import { PostCategories } from "./views/Post/PostCategories";
 import { PostList } from "./views/Post/PostList";
+import { PostListAll } from "./views/Post/PostListAll";
 
 function App() {
   return (
@@ -24,9 +25,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="posts/:id" element={<PostDetail />} />
-          <Route path="posts" element={<PostList />} />
-          <Route path="posts/category/:category" element={<PostList />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
+          <Route path="/posts/category/:category" element={<PostList />} />
+          <Route path="/posts" element={<PostListAll />} />
 
           <Route
             path="profile"
