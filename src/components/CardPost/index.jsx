@@ -14,6 +14,17 @@ export const CardPost = ({ data }) => {
     setLiked(!liked);
     setLikesCount(liked ? likesCount - 1 : likesCount + 1);
   };
+
+  const handleDelete = async () => {
+    try {
+      await deletePost(data.id);
+      window.location.reload(); // Recarga la página para actualizar la lista de posts
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   const isMyPost = (post) => {
     return currentUser?.id === post.author.id;
   };
@@ -42,7 +53,7 @@ export const CardPost = ({ data }) => {
               <Link to={`/post/edit/${data.id}`} className="btn">
                 🖊️ 
               </Link>
-              <Link onClick={() => deletePost(data.id)} className="btn">
+              <Link onClick={handleDelete} className="btn">
                 🗑️ 
               </Link>
             </>
