@@ -3,3 +3,15 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.sort-buttons button{
+  background: none;
+  border: none;
+  color: var(--turquesa);
+}
+
+
+.sort-buttons button.selected {
+  border-radius: 5px;
+  border: 1px solid var(--orange);
+}

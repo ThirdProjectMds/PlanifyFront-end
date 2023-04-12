@@ -63,7 +63,7 @@ export const CreatePost = ({editValues}) => {
               .catch((err) => console.log(err))
           : createPost(formData)
               .then((response) => {
-                Navigate("/");
+                Navigate("/posts");
                 console.log(response);
               })
               .catch((err) => {
