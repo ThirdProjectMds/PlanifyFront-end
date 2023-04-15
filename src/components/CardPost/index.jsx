@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import { deletePost, like } from "../../services/PostService";
+import { deletePost } from "../../services/PostService";
 import AuthContext from "../../contexts/AuthContext";
+import { like } from "../../services/LikeService";
 
 export const CardPost = ({ data }) => {
   const { currentUser } = useContext(AuthContext);
-  const [liked, setLiked] = useState(data.likes.includes(currentUser?.id));
+  const [liked, setLiked] = useState(data.likes.includes(currentUser?._id));
   const [likesCount, setLikesCount] = useState(data.likes.length);
 
   const handleLike = async () => {
-    await like(data?.id, currentUser?.id);
+    await like(data?.id, currentUser?._id);
     setLiked(!liked);
     setLikesCount(liked ? likesCount - 1 : likesCount + 1);
   };
@@ -61,8 +62,9 @@ export const CardPost = ({ data }) => {
           <Link onClick={handleLike} className="btn">
             {liked ? <span>🧡</span> : <span>🧡</span>} {likesCount}
           </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
+          </div>
+          </div>
+          </div>
+          );
+        };
+        
