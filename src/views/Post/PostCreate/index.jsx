@@ -41,7 +41,6 @@ export const CreatePost = ({editValues}) => {
     validateOnChange: false,
     validationSchema: postSchema,
     onSubmit: (values) => {
-      console.log(values);
       const formData = new FormData();
 
       formData.append("title", values.title);
@@ -52,7 +51,6 @@ export const CreatePost = ({editValues}) => {
       formData.append("image", values.image);
       formData.append("latitude", values.latitude);
       formData.append("longitude", values.longitude);
-      console.log(formData);
       {
         editValues
           ? updatePost(formData, id)
