@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { postDetail, updatePost } from "../../../services/PostService";
-import { postSchema } from "../../../utils/schemas/post.schema";
+import { useParams } from "react-router-dom";
+import { postDetail } from "../../../services/PostService";
 import { CreatePost } from "../PostCreate";
 
 export const EditPost = () => {
