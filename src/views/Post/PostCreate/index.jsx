@@ -21,7 +21,7 @@ export const CreatePost = ({editValues}) => {
   
   const { id } = useParams();
 
-  const submitButtonText = id ? "Guardar" : "Crear";
+  const submitButtonText = id ? "Save" : "Create";
 
   const Navigate = useNavigate();
 
