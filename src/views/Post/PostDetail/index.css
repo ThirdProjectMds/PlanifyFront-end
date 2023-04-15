@@ -11,12 +11,17 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 10px;
+}
+
+.list{
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
 
   .post-detail img{
-    width: 400px;
+    width: 380px;
    }
   
   }
