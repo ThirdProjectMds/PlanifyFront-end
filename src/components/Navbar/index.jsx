@@ -37,7 +37,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                {currentUser ? "Logout" : "Login"}
+                {currentUser ? <i class="fa-solid fa-right-from-bracket"></i> : <i class="fa-solid fa-right-to-bracket"></i>}
               </NavLink>
             </li>
             <li className="nav-item ">
@@ -58,7 +58,7 @@ const Navbar = () => {
                   className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
                   to="/profile"
                 >
-                  Profile
+                <i class="fa-solid fa-user"></i>
                 </NavLink>
               </li>
               <li>

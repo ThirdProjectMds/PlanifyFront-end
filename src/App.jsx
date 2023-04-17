@@ -14,6 +14,7 @@ import { SignUp } from "./views/SignUp";
 import { PostCategories } from "./views/Post/PostCategories";
 import { PostList } from "./views/Post/PostList";
 import { PostListAll } from "./views/Post/PostListAll";
+import { CommentForm } from "./components/CommentForm";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             }
           ></Route>
           <Route path="/post-categories" element={<PostCategories />} />
+          <Route path="/comment/:id/edit" element={<CommentForm/>} ></Route>
         </Routes>
       </div>
     </div>

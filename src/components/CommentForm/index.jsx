@@ -1,28 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import { commentSchema } from "../../utils/schemas/comment.schema";
-import { comment } from "../../services/CommentService";
+import { comment, editComment } from "../../services/CommentService";
 import { Input } from "../Input";
 import { FormControl } from "../FormControl";
-import { useParams } from "react-router-dom";
 import "./index.css";
+import AuthContext from "../../contexts/AuthContext";
 
-export const CommentForm = ({ postId, refreshPost }) => {
+export const CommentForm = ({ postId, refreshPost, contentComment , closeModal}) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
-  const { id } = useParams;
-  const onSubmit = async (values, { resetForm, setSubmitting }) => {
-    try {
-      const userId = await comment(postId, id, values.content);
-      resetForm();
-      setSuccess(true);
-      refreshPost()
-    } catch (err) {
-      setError(err.message);
-    }
-    setSubmitting(false);
-  };
+  const { currentUser } = useContext(AuthContext);
+  
+    const onSubmit = async (values, { resetForm, setSubmitting }) => {
+      try {
+        if (contentComment) {
+          await editComment(contentComment.postId,contentComment.commentId, values.content);
+          closeModal()
+        } else {
+          await comment(postId, currentUser?._id , values.content);
+        }
+        resetForm();
+        refreshPost()
 
+        setSuccess(true);
+      } catch (err) {
+        setError(err.message);
+      }
+      setSubmitting(false);
+    };
   const {
     values,
     errors,
@@ -32,17 +38,20 @@ export const CommentForm = ({ postId, refreshPost }) => {
     handleSubmit,
     isSubmitting,
   } = useFormik({
-    initialValues: { content: "" },
+    initialValues: {
+      content: contentComment?.commentContent || ""
+    },
     validationSchema: commentSchema,
     onSubmit,
   });
 
+  const submitButtonText = contentComment ? "Save" : "Create";
+
   return (
     <div className="CommentForm">
-      <h6>Add Comment</h6>
       {error && <div className="alert alert-danger">{error}</div>}
       {success && (
-        <div className="alert alert-success">Comment added successfully!</div>
+        <div className="alert alert-success">Comment {contentComment ? "updated" : "added"} successfully!</div>
       )}
       <form className="form-comment" onSubmit={handleSubmit}>
         <FormControl
@@ -66,7 +75,7 @@ export const CommentForm = ({ postId, refreshPost }) => {
           className="button-5 btn-form"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Loading..." : "Add"}
+          {isSubmitting ? "Loading..." : submitButtonText}
         </button>
       </form>
     </div>
