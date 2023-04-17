@@ -2,9 +2,32 @@
   list-style: none;
   border: 1px solid var(--orange);
   padding: 10px;
-  margin: 10px
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .comment-list {
   margin-top: 20px;
 }
+
+.info-user > img{
+  width: 28px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  padding: 2px;
+}
+
+.info-user > span{
+  text-decoration: none;
+  color: var(--turquesa)
+
+}
+.btn button{
+  background: none;
+  border: none;
+  color: var(--turquesa);
+}
+
+/* .card-list {
+  border: 1px solid var(--dark-blue);
+} */
