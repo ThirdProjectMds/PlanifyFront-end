@@ -25,7 +25,6 @@ export const CardPost = ({ data }) => {
     }
   };
 
-
   const isMyPost = (post) => {
     return currentUser?.id === post.author.id;
   };
@@ -42,29 +41,40 @@ export const CardPost = ({ data }) => {
         <div className="text-card">
           <h4>{data.title}</h4>
           <p className="description">{data.description}</p>
-          <p>{data.direction}</p>
+          <Link
+            className="link-google"
+            to={`http://maps.google.com/?q=${data.direction}`}
+          >
+            {data.direction}
+          </Link>
         </div>
         <div className="btn-card">
           <Link to={`/posts/${data.id}`} className="btn">
-          ➕
+            ➕
           </Link>
 
           {isMyPost(data) && (
             <>
               <Link to={`/post/edit/${data.id}`} className="btn">
-                🖊️ 
+                🖊️
               </Link>
               <Link onClick={handleDelete} className="btn">
-                🗑️ 
+                🗑️
               </Link>
             </>
           )}
           <Link onClick={handleLike} className="btn">
-            {liked ? <span>🧡</span> : <span>🧡</span>} {likesCount}
+            {liked ? (
+              <span>🧡</span>
+            ) : (
+              <span>
+                <i class="fa-regular fa-heart"></i>
+              </span>
+            )}{" "}
+            {likesCount}
           </Link>
-          </div>
-          </div>
-          </div>
-          );
-        };
-        
+        </div>
+      </div>
+    </div>
+  );
+};

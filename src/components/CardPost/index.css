@@ -16,6 +16,18 @@
   color: var(--turquesa)
 
 }
+.info-user > a:hover{
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+.link-google{
+  color: var(--turquesa);
+  text-decoration: none;
+
+}
+.link-google:hover{
+  color: var(--dark-blue);
+  }
 .card-info {
   width: 100%;
   display: flex;
