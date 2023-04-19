@@ -15,6 +15,7 @@ import { PostCategories } from "./views/Post/PostCategories";
 import { PostList } from "./views/Post/PostList";
 import { PostListAll } from "./views/Post/PostListAll";
 import { CommentForm } from "./components/CommentForm";
+import { ProfileLikes } from "./views/ProfileLikes";
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+          path="profile/likes"
+          element={
+            <ProtectedRoute>
+              <ProfileLikes />
+            </ProtectedRoute>
+          }
+        />
 
           <Route
             path="create-post"

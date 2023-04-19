@@ -6,7 +6,7 @@ import "./index.css"
 export const PostListAll = () => {
   const [posts, setPosts] = useState([]);
   const [selectedButton, setSelectedButton] = useState('');
-
+  
   useEffect(() => {
     getPosts()
     .then((posts) => {

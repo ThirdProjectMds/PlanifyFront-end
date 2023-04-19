@@ -4,7 +4,7 @@ import { getPosts } from "../../../services/PostService";
 import "./index.css";
 import { useParams } from "react-router-dom";
 
-export const PostList = () => {
+export const PostList = ({Posts}) => {
   const { category } = useParams();
   const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(

@@ -16,7 +16,7 @@ export const PostDetail = () => {
   
     })
     .catch((err) => console.log(err));
-  }, [post])
+  }, [])
   useEffect(() => {
     fecthPostDetail()
   }, [fecthPostDetail]);
