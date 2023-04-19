@@ -25,6 +25,53 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            
+            <li className="nav-item ">
+              {!currentUser && (
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}  `
+                  }
+                  to="/signup"
+                >
+                  Sign Up
+                </NavLink>
+              )}
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}  `
+                  }
+                  to="/posts"
+                >
+                  Posts
+                </NavLink>
+              </li>
+            {currentUser && (
+              <>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}  `
+                  }
+                  to="/create-post"
+                >
+                  Create
+                </NavLink>
+              </li>
+                <li className="nav-item ">
+                  <NavLink
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}  `
+                    }
+                    to="/profile"
+                  >
+                    <i className="fa-solid fa-user"></i>
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li className="nav-item ">
               <NavLink
                 className={({ isActive }) =>
@@ -37,50 +84,14 @@ const Navbar = () => {
                   }
                 }}
               >
-                {currentUser ? <i class="fa-solid fa-right-from-bracket"></i> : <i class="fa-solid fa-right-to-bracket"></i>}
+                {currentUser ? (
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                ) : (
+                  <i className="fa-solid fa-right-to-bracket"></i>
+                )}
               </NavLink>
-            </li>
-            <li className="nav-item ">
-              {!currentUser && (
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link ${isActive ? "active" : ""}  `
-                  }
-                  to="/signup"
-                >
-                  SignUp
-                </NavLink>
-              )}
-            </li>
-            {currentUser &&
-            <><li className="nav-item ">
-                <NavLink
-                  className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
-                  to="/profile"
-                >
-                <i class="fa-solid fa-user"></i>
-                </NavLink>
-              </li>
-              <li>
-                  <NavLink
-                    className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
-                    to="/create-post"
-                  >
-                    Create
-                  </NavLink>
+            </li> 
 
-                </li></>
-              }
-
-              <li>
-              <NavLink
-                className={({ isActive }) => `nav-link ${isActive ? "active" : ""}  `}
-                to="/posts"
-              >
-                Posts
-              </NavLink>
-
-            </li>
           </ul>
         </div>
       </div>
