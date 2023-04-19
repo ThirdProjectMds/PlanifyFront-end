@@ -1,17 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import { deletePost } from "../../services/PostService";
 import AuthContext from "../../contexts/AuthContext";
-import { like } from "../../services/LikeService";
+import { dislike, like } from "../../services/LikeService";
 
 export const CardPost = ({ data }) => {
   const { currentUser } = useContext(AuthContext);
-  const [liked, setLiked] = useState(data.likes.includes(currentUser?._id));
+  const [liked, setLiked] = useState(
+    localStorage.getItem(`liked:${data.id}`) === "true" ||
+      data.likes.includes(currentUser?.id)
+  );
   const [likesCount, setLikesCount] = useState(data.likes.length);
 
+  useEffect(() => {
+    localStorage.setItem(`liked:${data.id}`, liked);
+  }, [liked]);
+
   const handleLike = async () => {
-    await like(data?.id, currentUser?._id);
+    if (liked) {
+      await dislike(data?.id, currentUser?.id);
+    } else {
+      await like(data?.id, currentUser?.id);
+    }
+
     setLiked(!liked);
     setLikesCount(liked ? likesCount - 1 : likesCount + 1);
   };
@@ -28,6 +40,7 @@ export const CardPost = ({ data }) => {
   const isMyPost = (post) => {
     return currentUser?.id === post.author.id;
   };
+
   return (
     <div className="Card">
       <div className="image-place">
@@ -68,10 +81,10 @@ export const CardPost = ({ data }) => {
               <span>🧡</span>
             ) : (
               <span>
-                <i class="fa-regular fa-heart"></i>
+                <i className="fa-regular fa-heart"></i>
               </span>
-            )}{" "}
-            {likesCount}
+            )}
+                 {likesCount}
           </Link>
         </div>
       </div>
