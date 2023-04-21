@@ -5,18 +5,15 @@ import { deletePost } from "../../services/PostService";
 import AuthContext from "../../contexts/AuthContext";
 import { dislike, like } from "../../services/LikeService";
 
-export const CardPost = ({ data }) => {
+export const CardPost = ({ data, pageLike = false }) => {
   const { currentUser } = useContext(AuthContext);
-  const [liked, setLiked] = useState(
-    localStorage.getItem(`liked:${data.id}`) === "true" ||
-      data.likes.includes(currentUser?.id)
-  );
-  const [likesCount, setLikesCount] = useState(data.likes.length);
+  const [liked, setLiked] = useState(data.likes?.some(like=> like.author.id === currentUser?.id));
+  const [likesCount, setLikesCount] = useState(data.likes?.length || 0)
 
-  useEffect(() => {
-    localStorage.setItem(`liked:${data.id}`, liked);
-  }, [liked]);
-
+  const handleShare = () => {
+    const shareableLink = `http://localhost:5173/posts/${data.id}`;
+    navigator.share({ url: shareableLink });
+  };
   const handleLike = async () => {
     if (liked) {
       await dislike(data?.id, currentUser?.id);
@@ -63,21 +60,21 @@ export const CardPost = ({ data }) => {
         </div>
         <div className="btn-card">
           <Link to={`/posts/${data.id}`} className="btn">
-            ➕
+          <i className="fa-solid fa-circle-info"></i>
           </Link>
 
           {isMyPost(data) && (
             <>
               <Link to={`/post/edit/${data.id}`} className="btn">
-                🖊️
+              <i className="fa-solid fa-pen-to-square"></i>
               </Link>
               <Link onClick={handleDelete} className="btn">
-                🗑️
+              <i className="fa-regular fa-trash-can"></i>
               </Link>
             </>
           )}
           <Link onClick={handleLike} className="btn">
-            {liked ? (
+            {liked ||pageLike ? (
               <span>🧡</span>
             ) : (
               <span>
@@ -86,6 +83,10 @@ export const CardPost = ({ data }) => {
             )}
                  {likesCount}
           </Link>
+
+          <button onClick={handleShare} className="btn">
+          <i className="fa-solid fa-share"></i>
+        </button>
         </div>
       </div>
     </div>
