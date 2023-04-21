@@ -3,3 +3,8 @@
   flex-direction: column;
   gap: 20px;
 }
+.btn{
+  background: none;
+  border: none;
+  color: var(--turquesa);
+}
