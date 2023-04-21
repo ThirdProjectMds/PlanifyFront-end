@@ -36,7 +36,7 @@ export const PostDetail = () => {
 
       <div>
       <CommentForm refreshPost={fecthPostDetail} postId={post.id}   />
-      <CommentList  comments={post?.comments} />
+      <CommentList refreshPost={fecthPostDetail} comments={post?.comments} />
       </div>
       </div>
       );

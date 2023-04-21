@@ -21,7 +21,7 @@ export const CommentForm = ({ postId, refreshPost, contentComment , closeModal})
           await comment(postId, currentUser?._id , values.content);
         }
         resetForm();
-        refreshPost()
+        refreshPost && refreshPost()
 
         setSuccess(true);
       } catch (err) {

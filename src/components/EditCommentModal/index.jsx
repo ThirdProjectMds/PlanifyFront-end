@@ -2,7 +2,7 @@ import React from "react";
 import { CommentForm } from "../CommentForm";
 import "./index.css";
 
-export const EditCommentModal = ({ contentModal, setShowModal }) => {
+export const EditCommentModal = ({ contentModal, setShowModal, refreshPost }) => {
   const closeModal = () => {
     setShowModal(false);
   };
@@ -17,7 +17,7 @@ export const EditCommentModal = ({ contentModal, setShowModal }) => {
           </span>
         </div>
         <div className="modal-body">
-          <CommentForm contentComment={contentModal} closeModal={closeModal}/>
+          <CommentForm refreshPost={refreshPost} contentComment={contentModal} closeModal={closeModal}/>
         </div>
       </div>
     </div>
