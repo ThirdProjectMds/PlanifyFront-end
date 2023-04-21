@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FormControl } from "../../../components/FormControl";
 import { Input } from "../../../components/Input";
 import { postSchema } from "../../../utils/schemas/post.schema";
-import {createPost, updatePost} from "../../../services/PostService";
+import { createPost, updatePost } from "../../../services/PostService";
+import { categories } from "../../../assets/Categories/categories";
 import "./index.css";
 
 const initialValues = {
@@ -17,8 +18,7 @@ const initialValues = {
   longitude: "",
 };
 console.log(initialValues);
-export const CreatePost = ({editValues}) => {
-  
+export const CreatePost = ({ editValues }) => {
   const { id } = useParams();
 
   const submitButtonText = id ? "Save" : "Create";
@@ -56,7 +56,7 @@ export const CreatePost = ({editValues}) => {
           ? updatePost(formData, id)
               .then((response) => {
                 Navigate(`/posts/${id}`);
-                console.log(response);  
+                console.log(response);
               })
               .catch((err) => console.log(err))
           : createPost(formData)
@@ -130,7 +130,7 @@ export const CreatePost = ({editValues}) => {
             name="type"
             onChange={handleChange}
             onBlur={handleBlur}
-            values={values.type}
+            value={values.type}
             error={touched.type && errors.type}
             placeholder="Write a type"
           />
@@ -140,16 +140,22 @@ export const CreatePost = ({editValues}) => {
           error={touched.category && errors.category}
           htmlFor="category"
         >
-          <Input
+          <select
             id="category"
             name="category"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.category}
             error={touched.category && errors.category}
-            placeholder="Write a category"
-          />
+          >
+            {categories.map((category) => (
+              <option key={category.name} value={category.name}>
+                {category.title}
+              </option>
+            ))}
+          </select>
         </FormControl>
+
         <FormControl
           text="Latitude"
           error={touched.latitude && errors.latitude}
