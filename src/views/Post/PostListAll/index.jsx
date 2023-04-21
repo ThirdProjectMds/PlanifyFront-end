@@ -18,7 +18,6 @@ export const PostListAll = () => {
   const handleDeletePost = (id) => {
     setPosts(posts.filter((post) => post.id !== id));
   };
-
   const postsSortByLikes = useCallback(() => {
     setPosts([...posts].sort((a, b) => b.likes.length - a.likes.length));
     setSelectedButton('likes');
