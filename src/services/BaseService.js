@@ -5,7 +5,7 @@ const INVALID_STATUS_CODES = [401];
 
 export const createHttp = (useAccessToken = false) => { 
   const http = axios.create({
-    baseURL: import.meta.env.production.VITE_API_URL,
+    baseURL: import.meta.env.VITE_API_URL,
   })
 
   http.interceptors.request.use(
