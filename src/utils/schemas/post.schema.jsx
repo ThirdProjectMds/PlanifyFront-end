@@ -17,15 +17,12 @@ export const postSchema = Yup.object({
     .string("category err")
     .required("required"),
   latitude: Yup
-    .number("Direction err")
-    .required("required"),
+    .number("Direction err"),
   longitude: Yup
-    .number("description err")
-    .required("required"),
+    .number("description err"),
   image: Yup
     .mixed()
     .test("fileType", "Formato de imagen no válido", (value) => {
       return value && ["image/jpeg", "image/png"].includes(value.type);
     })
-    // .required("required"),
 });
