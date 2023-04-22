@@ -2,7 +2,6 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   padding: 40px 0;
 }
@@ -15,4 +14,10 @@
   width: 500px;
   height: 250px;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+ .category-card img{
+  width: 100vw;
+ }
 }

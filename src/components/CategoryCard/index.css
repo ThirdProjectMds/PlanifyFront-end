@@ -3,6 +3,9 @@
   color: var( --dark-blue)
 }
 
+.category-card:last-child{
+  margin-bottom: 20px;
+}
 .category-card img {
   width: 800px;
   height: 500px;

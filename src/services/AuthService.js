@@ -6,3 +6,4 @@ export const signup = ({ email, password, firstName, lastName }) => http.post("/
 export const login = ({ email, password }) => http.post('/login', { email, password })
 
 
+export const registerGoogle = () => http.get('/auth/google/register');
