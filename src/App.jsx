@@ -16,6 +16,7 @@ import { PostList } from "./views/Post/PostList";
 import { PostListAll } from "./views/Post/PostListAll";
 import { CommentForm } from "./components/CommentForm";
 import { ProfileLikes } from "./views/ProfileLikes";
+import { MyPosts } from "./views/MyPosts";
 
 function App() {
   return (
@@ -36,6 +37,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="my-posts"
+            element={
+              <ProtectedRoute>
+                <MyPosts />
               </ProtectedRoute>
             }
           />

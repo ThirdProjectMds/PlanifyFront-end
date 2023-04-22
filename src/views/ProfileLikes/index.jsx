@@ -19,8 +19,12 @@ export const ProfileLikes = () => {
   console.log(myLikedPosts);
   return (
     <div className='profile-likes'>
-      <h1>Profile</h1>
-      <h3>{currentUser.firstName}</h3>
+      <h1>My liked posts</h1>
+      {myLikedPosts.length === 0 &&
+        <div className='empty-list'>
+          <h2>No posts liked</h2>
+        </div> 
+      }
       {myLikedPosts.map((post) => (
         <CardPost 
         pageLike={true}

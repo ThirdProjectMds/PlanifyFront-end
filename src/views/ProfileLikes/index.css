@@ -1,5 +1,13 @@
-.profile-likes{
+.profile-likes {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.empty-list {
+  height: 500px;
+  margin: auto;
+  color: #5e5656;
+  display: flex;
+  align-items: center;
 }
