@@ -3,7 +3,7 @@
   bottom: 0;
 
   bottom:0;
-  width: 100vw;
+  width: 100%;
   }
 
 .up-footer{
@@ -23,10 +23,3 @@
 #text-a:hover{
 color: var(--dark-blue);
 }
-
-@media (max-width: 412px) {
- 
- .Footer{
-  width: 412px;
- } 
-  }

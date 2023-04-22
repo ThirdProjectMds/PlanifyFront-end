@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Profile } from "./views/Profile";
 import { Login } from "./views/Login";
-import { LoginGoogle } from "./views/LoginGoogle";
+import {LoginGoogle } from "./views/LoginGoogle";
 import { Home } from "./views/Home";
 import { PostDetail } from "./views/Post/PostDetail";
 import { CreatePost } from "./views/Post/PostCreate";
