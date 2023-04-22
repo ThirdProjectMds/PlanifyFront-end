@@ -1,12 +1,14 @@
-.post-detail img{
+.post-detail img {
   width: 800px;
 }
-.post-detail{
+
+.post-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.details{
+
+.details {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,14 +16,18 @@
   margin-bottom: 10px;
 }
 
-.list{
+.list {
   margin-top: 20px;
 }
 
+.comment-container{
+  width: 800px;
+}
 @media (max-width: 768px) {
-
-  .post-detail img{
-    width: 380px;
-   }
-  
+  .comment-container{
+    width: 90%;
   }
+  .post-detail img {
+    width: 380px;
+  }
+}

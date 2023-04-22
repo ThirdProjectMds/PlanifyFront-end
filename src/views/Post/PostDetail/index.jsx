@@ -34,7 +34,7 @@ export const PostDetail = () => {
         </h6>
       </div>
 
-      <div>
+      <div className="comment-container">
       <CommentForm refreshPost={fecthPostDetail} postId={post.id}   />
       <CommentList refreshPost={fecthPostDetail} comments={post?.comments} />
       </div>
