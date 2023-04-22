@@ -17,7 +17,11 @@ export const MyPosts = () => {
   return (
     <div className="profile">
     <h1>My posts</h1>
-      <Link className="btn" to={"/profile/likes"}>My liked posts</Link>
+
+ <div>
+ <Link className="btn" to={"/profile/likes"}>My liked posts</Link>
+ <Link className="btn" to={"/profile"}>Profile</Link>
+ </div>
       
       {myPosts.map((post) => (
         <CardPost data={post} key={post.id} />

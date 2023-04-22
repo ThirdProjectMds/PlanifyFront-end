@@ -3,6 +3,7 @@ import { myLiked } from '../../services/LikeService'
 import AuthContext from '../../contexts/AuthContext'
 import { CardPost } from '../../components/CardPost'
 import "./index.css"
+import { Link } from 'react-router-dom'
 
 export const ProfileLikes = () => {
   const { currentUser } = useContext(AuthContext)
@@ -16,10 +17,13 @@ export const ProfileLikes = () => {
       })
       .catch((err) => console.log(err));
   }, [])
-  console.log(myLikedPosts);
   return (
     <div className='profile-likes'>
       <h1>My liked posts</h1>
+      <div> 
+      <Link className="btn" to={"/my-posts"}>My posts</Link>
+      <Link className="btn" to={"/profile"}>Profile</Link>
+      </div>
       {myLikedPosts.length === 0 &&
         <div className='empty-list'>
           <h2>No posts liked</h2>
