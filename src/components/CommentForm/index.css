@@ -1,14 +1,13 @@
-.CommentForm{
-  width: 800px ;
-}
+
 .form-comment {
  margin-top: -20px;
+ text-align: right;
 }
 
-@media (max-width: 768px) {
-  .CommentForm{
-   width: 300px;
-  }
+.FormControl{
+  margin-top: 15px;
+}
 
-  
+.btn-form {
+  margin: 15px 0 !important;
 }

@@ -29,31 +29,33 @@ export const CommentList = ({ comments, refreshPost }) => {
                     alt={comment.author.firstName}
                   />
                   <span>{comment.author.firstName}</span>
+                  {isMyComment(comment) && (
+                    <div className="btn">
+                      <button
+                        onClick={() =>
+                          handleEditComment(
+                            comment.postId,
+                            comment._id,
+                            comment.content
+                          )
+                        }
+                      >
+                        <i className="fa-solid fa-pen-to-square"></i>
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          deleteCommment(comment._id, refreshPost())
+                        }
+                      >
+                        <i className="fa-regular fa-trash-can"></i>
+                      </button>
+                    </div>
+                  )}
                 </div>
                 <li>
                   <p>{comment.content}</p>
                 </li>
-                {isMyComment(comment) && (
-                <div className="btn">
-                    <button
-                      onClick={() =>
-                        handleEditComment(
-                          comment.postId,
-                          comment._id,
-                          comment.content
-                        )
-                      }
-                    >
-                      <i className="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    
-                    <button
-                    onClick={() => deleteCommment(comment._id, refreshPost())}
-                    >
-                    <i className="fa-regular fa-trash-can"></i>
-                    </button>
-                    </div>
-                    )}
               </div>
             );
           })}

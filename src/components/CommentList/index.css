@@ -1,13 +1,13 @@
 .comment-list li {
   list-style: none;
-  border: 1px solid var(--orange);
+  border: 1px solid var(--dark-blue);
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0;
   border-radius: 10px;
 }
 
 .comment-list {
-  margin-top: 20px;
+  margin-top: 90px;
 }
 
 .info-user > img{
@@ -20,7 +20,10 @@
 .info-user > span{
   text-decoration: none;
   color: var(--turquesa)
+}
 
+.btn{
+  margin-left: auto;
 }
 .btn button{
   background: none;
@@ -28,6 +31,10 @@
   color: var(--turquesa);
 }
 
-/* .card-list {
-  border: 1px solid var(--dark-blue);
-} */
+.card-list {
+  background-color: #f1f1f185;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--turquesa);
+  margin-bottom: 15px;
+}
