@@ -5,7 +5,6 @@ import {FormControl} from '../../components/FormControl';
 import {Input} from '../../components/Input';
 import AuthContext from '../../contexts/AuthContext';
 import { login as loginService } from '../../services/AuthService';
-import { setAccessToken } from '../../stores/AccssTokenStore';
 import { loginSchema } from '../../utils/schemas/login.schema';
 
 const initialValues = {
@@ -45,7 +44,7 @@ export const Login = () => {
   });
   return (
     <div className='Login'>
-
+    <h1>Login</h1>
     <form onSubmit={handleSubmit}>
     <FormControl text="Email" error={touched.email && errors.email} htmlFor="email">
       <Input
@@ -72,7 +71,7 @@ export const Login = () => {
       />
     </FormControl>
 
-    <button className="btn btn-primary" type="submit">
+    <button className="button-5 btn-form" type="submit">
       {isSubmitting
         ? 'Submitting...'
         : 'Submit'

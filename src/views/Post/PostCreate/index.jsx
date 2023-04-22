@@ -73,6 +73,7 @@ export const CreatePost = ({ editValues }) => {
   });
   return (
     <div className="create-post">
+      {editValues ? <h1>Edit post</h1> : <h1>Create post</h1>}
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <FormControl
           text="Title"
@@ -204,7 +205,7 @@ export const CreatePost = ({ editValues }) => {
           />
         </FormControl>
 
-        <button className=" button-5  " type="submit" disabled={isSubmitting}>
+        <button className=" button-5  btn-form" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Posting..." : submitButtonText}
         </button>
       </form>

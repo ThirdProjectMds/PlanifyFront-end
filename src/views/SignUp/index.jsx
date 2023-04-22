@@ -4,7 +4,8 @@ import { FormControl } from "../../components/FormControl";
 import { Input } from "../../components/Input";
 import { signupSchema } from "../../utils/schemas/signup.schema";
 import { signup } from '../../services/AuthService';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { GoogleAuthButton } from "../../components/GoogleAuthButton";
 
 
 const initialValues = {
@@ -13,6 +14,7 @@ const initialValues = {
   email: "",
   password: "",
 };
+
 export const SignUp = () => {
   const navigate = useNavigate();
   const {
@@ -46,8 +48,14 @@ export const SignUp = () => {
         });
     },
   });
+  const handleOnClick = () => {
+    window.location.assign(`http://localhost:3000/api/login/google`);
+  }
+
   return (
+
     <div className="sign-up">
+    <h1>Sign up</h1>
     <form onSubmit={handleSubmit}>
     <FormControl text="First Name" error={touched.firstName && errors.firstName} htmlFor="firsName">
     <Input
@@ -95,13 +103,15 @@ export const SignUp = () => {
         type="password"
       />
     </FormControl>
-
-    <button className="btn btn-primary" type="submit">
-      {isSubmitting
-        ? 'Submitting...'
-        : 'Submit'
-      }
+    <button className="button-5 btn-form" type="submit">
+    {isSubmitting
+      ? 'Submitting...'
+      : 'Submit'
+    }
     </button>
+    
+    
+<div onClick={handleOnClick}>    <p >Register with Google</p></div>
   </form>
 
   </div>

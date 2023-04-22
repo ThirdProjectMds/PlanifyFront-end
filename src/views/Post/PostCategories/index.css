@@ -1,6 +1,18 @@
 .post-categories {
   display: flex;
-  gap: 1rem ;
- align-items: center;
- flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.category-title {
+  text-align: center;
+}
+
+.category-card img {
+  width: 500px;
+  height: 250px;
+  object-fit: cover;
 }
