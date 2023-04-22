@@ -5,10 +5,11 @@ import { deletePost } from "../../services/PostService";
 import AuthContext from "../../contexts/AuthContext";
 import { dislike, like } from "../../services/LikeService";
 
-export const CardPost = ({ data, pageLike = false }) => {
+export const CardPost = ({ data, pageLike = false, disable = false}) => {
   const { currentUser } = useContext(AuthContext);
   const [liked, setLiked] = useState(data.likes?.some(like=> like.author.id === currentUser?.id));
   const [likesCount, setLikesCount] = useState(data.likes?.length || 0)
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const handleShare = () => {
     const shareableLink = `http://localhost:5173/posts/${data.id}`;
@@ -68,27 +69,45 @@ export const CardPost = ({ data, pageLike = false }) => {
               <Link to={`/post/edit/${data.id}`} className="btn">
               <i className="fa-solid fa-pen-to-square"></i>
               </Link>
-              <Link onClick={handleDelete} className="btn">
-              <i className="fa-regular fa-trash-can"></i>
-              </Link>
+
+              <button onClick={() => setShowConfirm(true)} className="btn">
+               <i className="fa-regular fa-trash-can"></i>
+              </button>
             </>
           )}
-          <Link onClick={handleLike} className="btn">
-            {liked ||pageLike ? (
-              <span className="heart-icon">🧡</span>
-            ) : (
-              <span>
-                <i  className="heart-icon fa-regular fa-heart"></i>
-              </span>
-            )}
-                 {likesCount}
-          </Link>
+
+         
+          {!disable && (
+            <button onClick={handleLike} className="btn" disabled={pageLike}>
+              {liked || pageLike ? (
+                <span className="heart-icon">🧡</span>
+              ) : (
+                <span>
+                  <i className="heart-icon fa-regular fa-heart"></i>
+                </span>
+              )}
+              {likesCount}
+            </button>
+          )}
 
           <button onClick={handleShare} className="btn">
           <i className="fa-solid fa-share"></i>
         </button>
         </div>
       </div>
+      {showConfirm && (
+        <div className="confirm-popup">
+        <div className="bg-popup">
+        <p>¿Are you sure?</p>
+        <div>
+          <button onClick={handleDelete}>Yes</button>
+          <button onClick={() => setShowConfirm(false)}>No</button>
+        </div>
+        
+        </div>
+        </div>
+      )}
     </div>
+    
   );
 };
