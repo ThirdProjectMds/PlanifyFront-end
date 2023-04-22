@@ -5,3 +5,11 @@ nav{
 .li{
   font-weight: 700;
 }
+.menu{
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .nav-icon{
+    margin-left: auto;
+  }
+}

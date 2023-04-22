@@ -24,8 +24,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            
+          <ul className="menu navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item ">
               {!currentUser && (
                 <NavLink
@@ -37,30 +36,31 @@ const Navbar = () => {
                   Sign Up
                 </NavLink>
               )}
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link ${isActive ? "active" : ""}  `
-                  }
-                  to="/posts"
-                >
-                  Posts
-                </NavLink>
-              </li>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}  `
+                }
+                to="/posts"
+              >
+                Posts
+              </NavLink>
+            </li>
             {currentUser && (
               <>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link ${isActive ? "active" : ""}  `
-                  }
-                  to="/create-post"
-                >
-                  Create
-                </NavLink>
-              </li>
-                <li className="nav-item ">
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}  `
+                    }
+                    to="/create-post"
+                  >
+                    Create
+                  </NavLink>
+                </li>
+
+                <li className="nav-item nav-icon">
                   <NavLink
                     className={({ isActive }) =>
                       `nav-link ${isActive ? "active" : ""}  `
@@ -72,7 +72,7 @@ const Navbar = () => {
                 </li>
               </>
             )}
-            <li className="nav-item ">
+            <li className={`nav-item ${!currentUser && 'nav-icon'}`}>
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}  `
@@ -90,8 +90,7 @@ const Navbar = () => {
                   <i className="fa-solid fa-right-to-bracket"></i>
                 )}
               </NavLink>
-            </li> 
-
+            </li>
           </ul>
         </div>
       </div>
