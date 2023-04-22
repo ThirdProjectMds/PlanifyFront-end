@@ -205,7 +205,11 @@ export const CreatePost = ({ editValues }) => {
           />
         </FormControl>
 
-        <button className=" button-5  btn-form" type="submit" disabled={isSubmitting}>
+        <button
+          className=" button-5  btn-form"
+          type="submit"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? "Posting..." : submitButtonText}
         </button>
       </form>
