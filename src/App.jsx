@@ -1,11 +1,10 @@
 import "./App.css";
-import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AuthContext from "./contexts/AuthContext";
 import { Profile } from "./views/Profile";
 import { Login } from "./views/Login";
+import { LoginGoogle } from "./views/LoginGoogle";
 import { Home } from "./views/Home";
 import { PostDetail } from "./views/Post/PostDetail";
 import { CreatePost } from "./views/Post/PostCreate";
@@ -17,16 +16,18 @@ import { PostListAll } from "./views/Post/PostListAll";
 import { CommentForm } from "./components/CommentForm";
 import { ProfileLikes } from "./views/ProfileLikes";
 import { MyPosts } from "./views/MyPosts";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-
+    
       <div className="container my-3">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="/validation" element={<LoginGoogle />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="/posts/:id" element={<PostDetail />} />
           <Route path="/posts/category/:category" element={<PostList />} />
@@ -78,6 +79,8 @@ function App() {
           <Route path="/comment/:id/edit" element={<CommentForm/>} ></Route>
         </Routes>
       </div>
+      <Footer/>
+
     </div>
   );
 }
