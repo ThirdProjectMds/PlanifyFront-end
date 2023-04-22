@@ -53,7 +53,7 @@ export const SignUp = () => {
     },
   });
   const handleOnClick = () => {
-    window.location.assign(`http://localhost:6542/api/login/google`) ;
+    window.location.assign(`http://localhost:3000/api/login/google`) ;
   };
 
   return (
