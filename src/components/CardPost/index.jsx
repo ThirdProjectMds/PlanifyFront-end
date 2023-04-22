@@ -75,10 +75,10 @@ export const CardPost = ({ data, pageLike = false }) => {
           )}
           <Link onClick={handleLike} className="btn">
             {liked ||pageLike ? (
-              <span>🧡</span>
+              <span className="heart-icon">🧡</span>
             ) : (
               <span>
-                <i className="fa-regular fa-heart"></i>
+                <i  className="heart-icon fa-regular fa-heart"></i>
               </span>
             )}
                  {likesCount}
