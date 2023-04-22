@@ -1,0 +1,32 @@
+.Footer{
+  position: absolute;
+  bottom: 0;
+
+  bottom:0;
+  width: 100vw;
+  }
+
+.up-footer{
+  background-color: var(--dark-blue);
+
+}
+
+.down-footer{
+  background-color: var(--orange);
+}
+
+#text-a{
+  margin-left: 10px;
+  color: white;
+}
+
+#text-a:hover{
+color: var(--dark-blue);
+}
+
+@media (max-width: 412px) {
+ 
+ .Footer{
+  width: 412px;
+ } 
+  }

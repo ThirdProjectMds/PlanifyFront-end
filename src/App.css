@@ -9,3 +9,10 @@ body {
   color: var(--dark-blue);
 font-style: italic;
 }
+html {
+  min-height: 100%;
+  position: relative;
+}
+.App:last-child{
+  margin-bottom: 180px;
+}
