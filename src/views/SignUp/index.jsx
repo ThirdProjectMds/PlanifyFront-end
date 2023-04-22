@@ -53,7 +53,7 @@ export const SignUp = () => {
     },
   });
   const handleOnClick = () => {
-    window.location.assign(`http://localhost:3000/api/login/google`) ;
+    window.location.assign(`${import.meta.env.VITE_API_PRO}/api/login/google`) ;
   };
 
   return (
