@@ -12,7 +12,7 @@ export const CardPost = ({ data, pageLike = false, disable = false}) => {
   const [showConfirm, setShowConfirm] = useState(false);
 
   const handleShare = () => {
-    const shareableLink = `http://localhost:5173/posts/${data.id}`;
+    const shareableLink = `https://p3planify.netlify.app//posts/${data.id}`;
     navigator.share({ url: shareableLink });
   };
   const handleLike = async () => {
