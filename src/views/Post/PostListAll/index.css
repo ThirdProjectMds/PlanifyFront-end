@@ -15,3 +15,20 @@
   border-radius: 5px;
   border: 1px solid var(--orange);
 }
+.add-more{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.add-more button{
+  background: none;
+  border: none;
+  color: var(--turquesa);
+  width: 130px;
+}
+
+.add-more button.selected {
+  border-radius: 5px;
+  border: 1px solid var(--orange);
+}
