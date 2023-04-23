@@ -53,7 +53,7 @@ export const SignUp = () => {
     },
   });
   const handleOnClick = () => {
-    window.location.assign(`${import.meta.env.VITE_API_PRO}/api/auth/google/callback`) ;
+    window.location.assign(`${import.meta.env.VITE_API_PRO}/api/login/google/callback`) ;
   };
 
   return (
