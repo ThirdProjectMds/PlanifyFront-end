@@ -23,17 +23,21 @@ export const PostListAll = () => {
   };
 
   const addRandomPosts = useCallback(() => {
-    if (posts.length > displayedPosts.length) {
+    const remainingCount = posts.length - displayedPosts.length;
+    if (remainingCount > 0) {
       const remainingPosts = posts.filter((post) => !displayedPosts.includes(post));
       const randomIndices = new Set();
-      while (randomIndices.size < 5) {
+      while (randomIndices.size < Math.min(5, remainingCount)) {
         randomIndices.add(Math.floor(Math.random() * remainingPosts.length));
       }
       const randomPosts = Array.from(randomIndices).map((index) => remainingPosts[index]);
       setDisplayedPosts([...displayedPosts, ...randomPosts]);
+      if (remainingCount <= 5) {
+        setNoMorePosts(true);
+      }
       setSelectedButton('more');
-    }else{
-      setNoMorePosts(false)
+    } else {
+      setNoMorePosts(false);
     }
   }, [posts, displayedPosts]);
 
