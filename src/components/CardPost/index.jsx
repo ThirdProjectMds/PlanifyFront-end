@@ -71,7 +71,7 @@ export const CardPost = ({ data, pageLike = false, disable = false}) => {
               </Link>
 
               <button onClick={() => setShowConfirm(true)} className="btn">
-               <i className="fa-regular fa-trash-can"></i>
+               <i  className="fa-regular fa-trash-can"></i>
               </button>
             </>
           )}
@@ -80,10 +80,10 @@ export const CardPost = ({ data, pageLike = false, disable = false}) => {
           {!disable && (
             <button onClick={handleLike} className="btn" disabled={pageLike}>
               {liked || pageLike ? (
-                <span className="heart-icon">🧡</span>
+                <span aria-label="Like" title="Like" className="heart-icon">🧡</span>
               ) : (
                 <span>
-                  <i className="heart-icon fa-regular fa-heart"></i>
+                  <i aria-label="Like" title="Like"className="heart-icon fa-regular fa-heart"></i>
                 </span>
               )}
               {likesCount}
