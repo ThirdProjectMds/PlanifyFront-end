@@ -61,17 +61,17 @@ export const CardPost = ({ data, pageLike = false, disable = false}) => {
         </div>
         <div className="btn-card">
           <Link to={`/posts/${data.id}`} className="btn">
-          <i className="fa-solid fa-circle-info"></i>
+          <i aria-label="More Information" title="More Information"className="fa-solid fa-circle-info"></i>
           </Link>
 
           {isMyPost(data) && (
             <>
               <Link to={`/post/edit/${data.id}`} className="btn">
-              <i className="fa-solid fa-pen-to-square"></i>
+              <i aria-label="Edit" title="Edit" className="fa-solid fa-pen-to-square"></i>
               </Link>
 
               <button onClick={() => setShowConfirm(true)} className="btn">
-               <i  className="fa-regular fa-trash-can"></i>
+               <i  aria-label="Delete" title="Delete" className="fa-regular fa-trash-can"></i>
               </button>
             </>
           )}
@@ -91,7 +91,7 @@ export const CardPost = ({ data, pageLike = false, disable = false}) => {
           )}
 
           <button onClick={handleShare} className="btn">
-          <i className="fa-solid fa-share"></i>
+          <i aria-label="Share" title="Share" className="fa-solid fa-share"></i>
         </button>
         </div>
       </div>
