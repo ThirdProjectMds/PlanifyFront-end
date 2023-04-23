@@ -21,6 +21,11 @@ export const PostList = ({Posts}) => {
 
   return (
     <div className="post-list">
+      {posts.length === 0 &&
+        <div className='empty-list'>
+          <h2>No posts in this category</h2>
+        </div> 
+      }
       {posts
         .filter((post) =>
           selectedCategory ? post.category === selectedCategory : true
