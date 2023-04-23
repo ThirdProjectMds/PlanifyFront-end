@@ -33,7 +33,7 @@ const Navbar = () => {
                   }
                   to="/signup"
                 >
-                  Sign Up
+                  Sign up
                 </NavLink>
               )}
             </li>
