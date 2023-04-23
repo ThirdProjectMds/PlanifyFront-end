@@ -17,7 +17,6 @@ const initialValues = {
   latitude: "",
   longitude: "",
 };
-console.log(initialValues);
 export const CreatePost = ({ editValues }) => {
   const { id } = useParams();
 

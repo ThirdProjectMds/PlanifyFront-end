@@ -11,7 +11,6 @@ export const EditPost = () => {
     postDetail(id)
       .then((post) => {
         setPost(post);
-        console.log(post);
       })
       .catch((err) => console.log(err));
   }, [id]);

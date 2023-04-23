@@ -23,7 +23,7 @@ export const PostList = ({Posts}) => {
     <div className="post-list">
       {posts.length === 0 &&
         <div className='empty-list'>
-          <h2>No posts in this category</h2>
+          <h2>No posts in this category yet</h2>
         </div> 
       }
       {posts
