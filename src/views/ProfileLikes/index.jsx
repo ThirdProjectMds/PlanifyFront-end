@@ -13,7 +13,6 @@ export const ProfileLikes = () => {
     myLiked()
       .then((myLikedPostsResponse) => {
         setMyLikedPosts(myLikedPostsResponse)
-        console.log(myLikedPostsResponse);
       })
       .catch((err) => console.log(err));
   }, [])
