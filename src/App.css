@@ -16,3 +16,11 @@ html {
 .App:last-child{
   margin-bottom: 180px;
 }
+
+.empty-list {
+  height: 500px;
+  margin: auto;
+  color: #5e5656;
+  display: flex;
+  align-items: center;
+}

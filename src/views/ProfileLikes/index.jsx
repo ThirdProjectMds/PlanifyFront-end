@@ -26,7 +26,7 @@ export const ProfileLikes = () => {
       </div>
       {myLikedPosts.length === 0 &&
         <div className='empty-list'>
-          <h2>No posts liked</h2>
+          <h2>You don't have posts liked</h2>
         </div> 
       }
       {myLikedPosts.map((post) => (
