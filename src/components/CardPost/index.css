@@ -73,15 +73,16 @@
     gap: 1rem;
   }
   .image-place img{
-    width: 350px;
-    height: 220px;
+    width: 500px;
+    height: 360px;
    }
 }
 
-@media (max-width: 395px) {
+@media (max-width: 620px) {
   .image-place img{
-    object-fit: contain;
-  }
+    width: 330px;
+    height: 260px;
+   }
 }
   .heart-icon{
     margin-right: 4px;
